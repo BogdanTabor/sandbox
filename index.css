@@ -1,0 +1,55 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  width: 100%;
+  height: 100%;
+  
+}
+body {
+}
+.white {
+  background-color: white;
+}
+
+.red {
+  background-color: tomato;
+}
+
+.green {
+  background-color: lightgreen;
+}
+div {
+display: flex;
+}
+
+/* NESTING STYLES */
+body {
+  background-color: lightblue;
+  max-width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) ;
+  padding: 20px;
+}
+body > div  {
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 30px;
+  
+}
+
+body div > div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+body div > div > div {
+  display: grid;
+  border-radius: 5px;
+  grid-gap: 10px;
+}
