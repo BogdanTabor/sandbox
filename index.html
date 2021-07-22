@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,102 +8,126 @@
   <link rel="stylesheet" type="text/css" href="index.css">
   <title>Sandbox</title>
 </head>
+
 <body id="home" class="open-left">
   <div id="offcanvas-left" class="hide">
     <ul>
-      <li><a href="/index.html" >Home</a></li>
-      <li><a href="/pages/education.html" >Education</a></li>
-      <li><a href="/pages/vacation.html" >Vacation</a></li>
-  </ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/pages/education.html">Education</a></li>
+      <li><a href="/pages/vacation.html">Vacation</a></li>
+    </ul>
   </div>
   <div class="togglebar">
-      <!-- adds the class of hide to .offcanvas.left -->
-      <div class="toggle" onclick="toggleLeft()">
-          <i class="fa fa-bars"></i>
-      </div>
+    <!-- adds the class of hide to .offcanvas.left -->
+    <div class="toggle" onclick="toggleLeft()">
+      <i class="fa fa-bars"></i>
+    </div>
   </div>
   <div class="center">
     <header>
       <nav>
         <ul>
-          <li><a href="/index.html" >Home</a></li>
-          <li><a href="/pages/education.html" >Education</a></li>
-          <li><a href="/pages/vacation.html" >Vacation</a></li>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/pages/education.html">Education</a></li>
+          <li><a href="/pages/vacation.html">Vacation</a></li>
         </ul>
       </nav>
     </header>
-      <section>
-          <main>
-              <article>
-                  <figure class="hero">
-                      <img src="https://source.unsplash.com/random" 
-                      alt="A laptop with a mouse on a desk and a pair of glasses."/>
-                      <figcaption>
-                          It is a random picture from internet
-                      </figcaption>
-                  </figure>
-                  <h2><b>Here is an html page</b></h2>
-                  <hr>
-                  <p>
-                    <b>Hypertext Markup Language (HTML)</b> 
-                    is the standard markup language for creating 
-                    web pages and web applications. With 
-                    <i>Cascading Style Sheets (CSS)</i> and 
-                    <em>JavaScript</em>, it forms a triad of 
-                    <strong>cornerstone technologies</strong>
-                    for the World Wide Web. Web browsers receive
-                    <q>HTML documents</q> from a web 
-                    server or from local storage and render 
-                    them into multimedia web pages.
-                    <p>
-                      <a href="https://en.wikipedia.org/wiki/HTML">HTML describes</a> the 
-                    structure of a web page semantically 
-                    and originally included cues for the 
-                    appearance of the document.
-                    </p>                    
-                </p>
-                  <blockquote cite="http://twitter.com">
-                    "Every great developer you know got
-                    there by solving problems they were
-                    unqualified to solve until they actually
-                    did it." - Patrick McKenzie
-                  </blockquote>
+    <section>
+      <main>
+        <article>
+          <figure class="hero">
+            <img src="https://source.unsplash.com/random"
+              alt="A laptop with a mouse on a desk and a pair of glasses." />
+            <figcaption>
+              It is a random picture from internet
+            </figcaption>
+          </figure>
+          <h2><b>Here is an html page</b></h2>
+          <hr>
+          <p>
+            <b>Hypertext Markup Language (HTML)</b>
+            is the standard markup language for creating
+            web pages and web applications. With
+            <i>Cascading Style Sheets (CSS)</i> and
+            <em>JavaScript</em>, it forms a triad of
+            <strong>cornerstone technologies</strong>
+            for the World Wide Web. Web browsers receive
+            <q>HTML documents</q> from a web
+            server or from local storage and render
+            them into multimedia web pages.
+          <p>
+            <a href="https://en.wikipedia.org/wiki/HTML">HTML describes</a> the
+            structure of a web page semantically
+            and originally included cues for the
+            appearance of the document.
+          </p>
+          </p>
+          <blockquote cite="http://twitter.com">
+            "Every great developer you know got
+            there by solving problems they were
+            unqualified to solve until they actually
+            did it." - Patrick McKenzie
+          </blockquote>
 
-                  <br>
-                  <table>
-                    <tr>
-                      <td>Table data</td>
-                      <td>Table data</td>
-                      <td>Table data</td>
-                    </tr>
-                    <tr>
-                      <td>Table data</td>
-                      <td>Table data</td>
-                      <td>Table data</td>
-                    </tr>
-                    <tr>
-                      <td>Table data</td>
-                      <td>Table data</td>
-                      <td>Table data</td>
-                    </tr>
-                  </table>
-                  <br>
+          <br>
+          <table class="styled">
+            <thead>
+              <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>mailJohn@gmail.com</td>
+              </tr>
+              <tr>
+                <td>Jane</td>
+                <td>Fox</td>
+                <td>FoxJane@gmail.com</td>
+              </tr>
+              <tr>
+                <td>Bob</td>
+                <td>Grils</td>
+                <td>bearsarecool@forest.com</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
 
-                  <pre>
-/* css */
-html,body {
-    padding: 0;
-    height: 100%;
-    margin: 0px;
-    overflow: hidden;
-}
-                  </pre>
-              </article>
-          </main>
-      </section>          
-      <footer>
-      </footer>
+          <pre>
+            /* css */
+            html,body {
+                padding: 0;
+                height: 100%;
+                margin: 0px;
+                overflow: hidden;
+            }
+          </pre>
+        </article>
+      </main>
+    </section>
+    <footer>
+      <table class="styled">
+        <th colspan="2">
+          Work hours
+        </th>
+        <tr>
+          <td>mon-fri</td>
+          <td>7am-6pm</td>
+        </tr>
+        <tr>
+          <td>sat-sun</td>
+          <td>closed</td>
+        </tr>
+      </table>
+    </footer>
   </div>
   <script type="text/javascript" src="index.js"></script>
 </body>
+
 </html>
