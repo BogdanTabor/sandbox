@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+</head>
+
+<body>
+  <section>
+    <h1>My first html form</h1>
+    <p>Source: <a style="text-decoration: none;"
+        href="https://developer.mozilla.org/ru/docs/Learn/Forms/Your_first_form">
+        mozilla</a></p>
+  </section>
+  <section>
+    <form action="/form-page" method="post" id="form-field">
+      <label for="form-field">Contact us:</label>
+      <ul>
+        <li>          
+          <label for="name-input">Name: </label>
+          <input type="text" name="name" placeholder="Write your name" id="name-input">
+        </li>
+        <li>
+          <label for="email-input">Email: </label>
+          <input type="email" name="name" placeholder="Write your email" id="email-input">
+        </li>
+        <li>
+          <label for="message-input">Your message: </label>
+          <textarea name="user-message"
+          placeholder="Your message"
+          id="message-input">Default message
+          </textarea>
+        </li>
+        <li>
+          <button type="submit">Send your message</button>
+        </li>
+      </ul>
+    </form>
+  </section>
+</body>
+
+</html>
