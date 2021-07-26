@@ -17,8 +17,10 @@
           mozilla</a></p>
     </header>
   </section>
+
+  <!--FORM-->
   <section>
-    <form action="/form-page" method="post" id="form-field">
+    <form name="form" id="form-field">
       <ul>
         <li>
           <label for="name-input">Name: </label>
@@ -38,6 +40,18 @@
       </ul>
     </form>
   </section>
+
+  <!--SCRIPT-->
+  <script type="text/javascript">
+    window.onload = function() {
+      document.getElementById("form").addEventListener("click", 
+      function(event) {
+        event.preventDefault();
+      });
+    };
+  </script>
+  
+   <!--STYLES-->
   <style>
     header {
       text-align: center;
