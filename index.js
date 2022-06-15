@@ -8,20 +8,6 @@ window.toggleRight = function() {
   element.classList.toggle("hide");
 }
 
-//header_button
-const btn = document.getElementById('btn');
-let btntxt = btn.textContent;
-const burn = function() {
-  btntxt = btntxt.padStart(15, '🔥');
-  btn.innerHTML = btntxt;
-  setTimeout(() => {
-    alert(`The charcode of 🔥 is: ` + btntxt.charCodeAt(0))
-  }, 1000)
-}
-btn.addEventListener('click', () => {
-  burn();
-})
-
 // section1Text
 const section1Text = `<b>Hypertext Markup Language (HTML)</b> is the standard markup language for creating web pages and web
 applications. With <i>Cascading Style Sheets (CSS)</i> and <em>JavaScript</em>, it forms a triad of
@@ -35,44 +21,111 @@ included cues for the appearance of the document.
 `;
 document.getElementById('section2').innerHTML = section2Text;
 
-// let listFruits = "<ul>";
+const days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+//toLocaleTimeString()
+//headerClock
+const getTime = () => document.getElementById("time")
+.textContent = new Date().toLocaleTimeString();
+setInterval(getTime, 1000);
 
-// fruits.forEach(showFruits);
-// listFruits += "</ul>";
-// document.getElementById("fruits").innerHTML = 
-// listFruits;
+//headerDate
+const getDate = () => document.getElementById("date")
+.textContent = `${new Date().getDate()}${days[new Date().getDay()]}`;
+setInterval(getDate, 1000);
 
-// function showFruits(value) {
-//   listFruits += "<li>" + value + "</li>";
-// }
-
-//next list of fruits
 const fruits = {
-  arr: ["Banana", "Orange", "Apple", "Mango", "Kiwi"],
   name: "fruits",
-};
-
-//arr numbers
+  arr: ["apple", "apricot", "avocado", "banana"],
+}
 const nums = {
-  arr: [42, 100, 1, 5, 25, 10],
   name: "nums",
+  arr: [42, 100, 1, 5, 25, 10],
 };
 
-//SortLists
+
+//SHOW arr
+function showArr(list) {
+  let txt = "";
+  for (let x in list) {
+    txt += list[x] + ' ';
+  }
+  return txt + '</br>';
+}
+
+//SORT arr
 let order = false;
-let element;
 function sortList(list) {
   order = !order;
-  element = list.name;
-  const setElement = () => document.getElementById(element).innerHTML = list.arr;
+  let newList;
+  const setElement = () => document.getElementById(list.name).innerHTML = showArr(newList);
+
   if (order) {
-    list.arr.sort();
-    list.arr.sort(function(a, b) {return a - b});
+    newList = list.arr.sort();
+    newList = list.arr.sort(function(a, b) {return a - b});
     setElement();
   }
   else {
-    list.arr.reverse();
-    list.arr.sort(function(a, b) {return b - a});
+    newList = list.arr.reverse();
+    newList = list.arr.sort(function(a, b) {return b - a});
     setElement();
   }
+}
+
+//SHUFFLE arr
+function shuffleList(list) {
+  let newList = list.arr;
+  for (let i = newList.length -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * i)
+    let k = newList[i]
+    newList[i] = newList[j]
+    newList[j] = k
+  }
+  document.getElementById(list.name).innerHTML = showArr(newList);
+}
+
+//DOUBLE value
+function doubleValue(list) {
+  let newList = list.arr;
+  function double(value, index, array) {
+    return value * 2;
+  }
+  newList = newList.map(double);
+  document.getElementById(list.name).innerHTML = showArr(newList);
+}
+
+//FILTER arr
+function filterList(list) {
+  let newList = list.arr;
+  function filterArr(value, index, array) {
+  return value > 10;
+}
+newList = newList.filter(filterArr)
+document.getElementById(list.name).innerHTML = showArr(newList);
+}
+
+//Math.MIN/MAX with arrs
+// const max = list.arr.reduce(function(a, b) {
+//   return Math.max(a, b);
+// }, -Infinity);
+
+//RANDOM item
+function randomItem(list) {
+  let randomItem = list.arr[Math.floor(Math.random()*list.arr.length)];
+  document.getElementById(list.name).innerHTML = randomItem;
+}
+
+//Math sandbox
+function playMath(list) {
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  document.getElementById(list.name).innerHTML = getRandomInt(1, 10);
+}
+
+//Search item in arr
+function includesSearch(list) {
+  let input = document.getElementById("searchButton").value;
+  let listName = document.getElementById(list.name);
+  let searchElement = list.arr.includes(input.toLowerCase());
+  searchElement ? listName.innerHTML = input : listName.innerHTML = "No such fruit";
 }

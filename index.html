@@ -42,17 +42,10 @@
             <img src="https://picsum.photos/1200/440/?image=201"
               alt="A laptop with a mouse on a desk and a pair of glasses." />
             <figcaption>
-              <h1 id="btn">TAP TO BURN</h1>
+              <h1 id="time">Current time</h1>
+              <h1 id="date">Current date</h1>
             </figcaption>
           </figure>
-          <div>
-            <p>List of fruits</p>
-            <p id="fruits">fruits</p>
-            <button onclick="sortList(fruits)">SORT asc/desc</button>
-            <p>List of numbers</p>
-            <p id="nums">nums</p>
-            <button onclick="sortList(nums)">SORT asc/desc</button>
-          </div>          
           <h2 style="font-size: 2em" id="text">WHAT IS HTML?</h2>
           <hr>
           <p id='section1'></p>
@@ -88,6 +81,27 @@
               </tr>
             </tbody>
           </table>
+          <div class="arrays">
+            <span>List of fruits</span>
+            <button onclick="sortList(fruits)">SORT asc/desc</button>
+            <button onclick="shuffleList(fruits)">SHUFFLE</button>
+            <button onclick="randomItem(fruits)">RANDOM item</button>
+            <input
+            type="search"
+            placeholder="Search fruit"
+            id="searchButton"
+            onchange="includesSearch(fruits)"
+            >
+            <p id="fruits">fruits</p>
+            <br></br>
+            <span>List of numbers</span>
+            <button onclick="sortList(nums)">SORT asc/desc</button>
+            <button onclick="shuffleList(nums)">SHUFFLE</button>
+            <button onclick="doubleValue(nums)">DOUBLE</button>
+            <button onclick="filterList(nums)">FILTER > 10</button>
+            <button onclick="playMath(nums)">PLAY WITH MATH</button>
+            <p id="nums">nums</p>
+          </div>  
         </article>
       </main>
       <footer>
