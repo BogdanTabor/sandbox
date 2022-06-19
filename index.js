@@ -9,7 +9,7 @@ window.toggleRight = function() {
 }
 
 // section1Text
-const section1Text = `<b>Hypertext Markup Language (HTML)</b> is the standard markup language for creating web pages and web
+let section1Text = `<b>Hypertext Markup Language (HTML)</b> is the standard markup language for creating web pages and web
 applications. With <i>Cascading Style Sheets (CSS)</i> and <em>JavaScript</em>, it forms a triad of
 <strong>cornerstone technologies</strong> for the World Wide Web.`;
 document.getElementById('section1').innerHTML = section1Text;
@@ -42,6 +42,7 @@ const nums = {
   arr: [42, 100, 1, 5, 25, 10],
 };
 
+console.log(~ 1000);
 
 //SHOW arr
 function showArr(list) {
@@ -128,4 +129,27 @@ function includesSearch(list) {
   let listName = document.getElementById(list.name);
   let searchElement = list.arr.includes(input.toLowerCase());
   searchElement ? listName.innerHTML = input : listName.innerHTML = "No such fruit";
+}
+
+//wordToReplace
+const wordReplace = document.getElementById("wordReplace");
+const wordPaste = document.getElementById("wordPaste");
+const quote = document.getElementById("quote");
+let replaceble;
+
+function wordToPaste() {
+  replaceble = wordReplace.value;
+  wordPaste.focus()
+}
+
+//Replace word in text
+function replaceWord() {
+  if (replaceble) {
+    let regexp = new RegExp(replaceble, 'i');
+    quote.innerHTML = quote.innerHTML.replace(regexp, wordPaste.value);
+    wordReplace.value = '';
+    wordPaste.value = '';
+    wordReplace.focus()
+  }
+  wordReplace.focus()
 }

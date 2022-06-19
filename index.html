@@ -50,37 +50,57 @@
           <hr>
           <p id='section1'></p>
           <p id='section2'></p>
+
+          <section style="padding-top: 30px;">
+            <span>Edit quote
+              <input
+                type="search"
+                placeholder="Word to replace"
+                id="wordReplace"
+                onchange="wordToPaste()"
+              >
+              <input
+                type="search"
+                placeholder="Word to paste"
+                id="wordPaste"
+                onchange="replaceWord()"
+              >
+            </span>          
+          </section>
           <blockquote cite="http://twitter.com" id="quote">
             "Every great developer you know got there by solving problems they were unqualified to solve until they
             actually did it." - Patrick McKenzie
           </blockquote>
-          <table class="styled">
-            <colgroup>
-              <col style="background-color: blueviolet;">
-            </colgroup>
-            <colgroup>
-              <col style="background-color: #f4e767;" span="2">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>Johnny.doe@gmail.com</td>
-              </tr>
-              <tr>
-                <td>Jane</td>
-                <td>Doe</td>
-                <td>i_heart_johnny@gmail.com</td>
-              </tr>
-            </tbody>
-          </table>
+
+          <div id="table" style="padding-top: 30px;">
+            <table class="styled">
+              <colgroup>
+                <col style="background-color: blueviolet;">
+              </colgroup>
+              <colgroup>
+                <col style="background-color: #f4e767;" span="2">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Doe</td>
+                  <td>Johnny.doe@gmail.com</td>
+                </tr>
+                <tr>
+                  <td>Jane</td>
+                  <td>Doe</td>
+                  <td>i_heart_johnny@gmail.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div class="arrays">
             <span>List of fruits</span>
             <button onclick="sortList(fruits)">SORT asc/desc</button>
