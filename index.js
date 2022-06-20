@@ -47,8 +47,8 @@ console.log(~ 1000);
 //SHOW arr
 function showArr(list) {
   let txt = "";
-  for (let x in list) {
-    txt += list[x] + ' ';
+  for (let elem in list) {
+    txt += list[elem] + ' ';
   }
   return txt + '</br>';
 }
