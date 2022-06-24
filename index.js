@@ -1,3 +1,13 @@
+const fruits = {
+  name: "fruits",
+  arr: [ 'apple', 'kiwi', 'banana' ]
+  // arr: fruits
+}
+const nums = {
+  name: "nums",
+  arr: [42, 100, 1, 5, 25, 10],
+};
+
 //toggle
 window.toggleLeft = function() {
   let element = document.getElementById("offcanvas-left");
@@ -8,22 +18,8 @@ window.toggleRight = function() {
   element.classList.toggle("hide");
 }
 
-// section1Text
-let section1Text = `<b>Hypertext Markup Language (HTML)</b> is the standard markup language for creating web pages and web
-applications. With <i>Cascading Style Sheets (CSS)</i> and <em>JavaScript</em>, it forms a triad of
-<strong>cornerstone technologies</strong> for the World Wide Web.`;
-document.getElementById('section1').innerHTML = section1Text;
-
-//section2Text
-const section2Text = `Web browsers receive <q>HTML documents</q> from a web server or from local storage and render them into
-multimedia web pages. <a href="#">HTML describes</a> the structure of a web page semantically and originally
-included cues for the appearance of the document.
-`;
-document.getElementById('section2').innerHTML = section2Text;
-
-const days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
-//toLocaleTimeString()
 //headerClock
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const getTime = () => document.getElementById("time")
 .textContent = new Date().toLocaleTimeString();
 setInterval(getTime, 1000);
@@ -33,16 +29,6 @@ const getDate = () => document.getElementById("date")
 .textContent = `${new Date().getDate()}${days[new Date().getDay()]}`;
 setInterval(getDate, 1000);
 
-const fruits = {
-  name: "fruits",
-  arr: ["apple", "apricot", "avocado", "banana"],
-}
-const nums = {
-  name: "nums",
-  arr: [42, 100, 1, 5, 25, 10],
-};
-
-console.log(~ 1000);
 
 //SHOW arr
 function showArr(list) {
@@ -100,7 +86,7 @@ function filterList(list) {
   function filterArr(value, index, array) {
   return value > 10;
 }
-newList = newList.filter(filterArr)
+newList = newList.filter(filterArr);
 document.getElementById(list.name).innerHTML = showArr(newList);
 }
 
@@ -118,7 +104,7 @@ function randomItem(list) {
 //Math sandbox
 function playMath(list) {
   function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
   document.getElementById(list.name).innerHTML = getRandomInt(1, 10);
 }
@@ -135,21 +121,82 @@ function includesSearch(list) {
 const wordReplace = document.getElementById("wordReplace");
 const wordPaste = document.getElementById("wordPaste");
 const quote = document.getElementById("quote");
-let replaceble;
+let replacebleWord;
 
 function wordToPaste() {
-  replaceble = wordReplace.value;
-  wordPaste.focus()
+  replacebleWord = wordReplace.value;
+  wordPaste.focus();
 }
 
 //Replace word in text
 function replaceWord() {
-  if (replaceble) {
-    let regexp = new RegExp(replaceble, 'i');
+  if (replacebleWord) {
+    let regexp = new RegExp(replacebleWord, 'i');
     quote.innerHTML = quote.innerHTML.replace(regexp, wordPaste.value);
     wordReplace.value = '';
     wordPaste.value = '';
-    wordReplace.focus()
+    wordReplace.focus();
   }
-  wordReplace.focus()
+  wordReplace.focus();
 }
+
+//TODO replace all matches
+const symbolReplace = document.getElementById("symbolReplace");
+const symbolPaste = document.getElementById("symbolPaste");
+const par1 = document.getElementById("par1");
+let replacebleSymbol;
+
+function symbolToPaste() {
+  replacebleSymbol = symbolReplace.value;
+  symbolPaste.focus();
+}
+
+function replaceSymbol() {
+  if (replacebleSymbol) {
+    let regexp = new RegExp(replacebleSymbol, 'i');
+    par1.innerHTML = par1.innerHTML.replace(regexp, symbolPaste.value);
+    symbolReplace.value = '';
+    symbolPaste.value = '';
+    symbolReplace.focus();
+  }
+  symbolReplace.focus();
+}
+
+//Counter
+// Define an object
+const obj = {counter : 0};
+// Define Setters and Getters
+Object.defineProperty(obj, "reset", {
+  get : function () {this.counter = 0;}
+});
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (value) {this.counter -= value;}
+});
+function increm() {
+  obj.increment;
+    document.getElementById("counter").innerHTML = obj.counter;
+}
+function decrem() {
+  obj.decrement;
+    document.getElementById("counter").innerHTML = obj.counter;
+}
+function res() {
+  obj.reset;
+    document.getElementById("counter").innerHTML = obj.counter;
+}
+// Play with counter:
+obj.reset;
+obj.add = 5;
+obj.subtract = 1;
+obj.increment;
+obj.decrement;
+document.getElementById("counter").innerHTML = obj.counter;
