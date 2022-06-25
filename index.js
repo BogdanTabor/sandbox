@@ -163,40 +163,16 @@ function replaceSymbol() {
 }
 
 //Counter
-// Define an object
-const obj = {counter : 0};
-// Define Setters and Getters
-Object.defineProperty(obj, "reset", {
-  get : function () {this.counter = 0;}
-});
-Object.defineProperty(obj, "increment", {
-  get : function () {this.counter++;}
-});
-Object.defineProperty(obj, "decrement", {
-  get : function () {this.counter--;}
-});
-Object.defineProperty(obj, "add", {
-  set : function (value) {this.counter += value;}
-});
-Object.defineProperty(obj, "subtract", {
-  set : function (value) {this.counter -= value;}
-});
-function increm() {
-  obj.increment;
-    document.getElementById("counter").innerHTML = obj.counter;
-}
-function decrem() {
-  obj.decrement;
-    document.getElementById("counter").innerHTML = obj.counter;
-}
-function res() {
-  obj.reset;
-    document.getElementById("counter").innerHTML = obj.counter;
-}
-// Play with counter:
-obj.reset;
-obj.add = 5;
-obj.subtract = 1;
-obj.increment;
-obj.decrement;
-document.getElementById("counter").innerHTML = obj.counter;
+const counterElem = document.getElementById("counter");
+const addCounter = document.getElementById("addCounter");
+const substractCounter = document.getElementById("substractCounter");
+const counter = {
+  value : 0,
+  get reset() { this.value = 0; this.render; },
+  get increment() { this.value++; this.render; },
+  get decrement() { this.value--; this.render; },
+  get add() { this.value += +addCounter.value; this.render; this.clearInput(addCounter) },
+  get substract() { this.value -= +substractCounter.value; this.render; this.clearInput(substractCounter) },
+  get render() { counterElem.innerHTML = counter.value; },
+  clearInput(input) { input.value = '' }
+};

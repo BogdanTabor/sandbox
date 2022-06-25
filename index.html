@@ -74,7 +74,7 @@
             >
           </section>
           -->
-
+<!--
           <section style="margin-top: 30px;">Edit quote
             <input
               type="search"
@@ -117,15 +117,32 @@
             <p id="nums">nums</p>
           </div>  
         </article>
+      -->
+
+        <!--COUNTER-->
         <div style="margin: 0px 0px 0px 150px">
           <h2>JavaScript Getters and Setters</h2>
           <p>Perfect for creating counters:</p>
-          <p id="counter"></p>
-          <button id="incr" onclick="increm()"> + </button>
-          <button id="decr" onclick="decrem()"> - </button>
-          <button id="res" onclick="res()"> reset </button>  
+          <p id="counter">0</p>
+          <button id="incr" onclick="counter.increment"> + </button>
+          <button id="decr" onclick="counter.decrement"> - </button>
+          <button id="res" onclick="counter.reset"> reset </button>
+          <input
+            type="number"
+            placeholder="Add"
+            onchange="counter.add"
+            id="addCounter"
+          >
+          <input
+            type="number"
+            placeholder="Substract"
+            onchange="counter.substract"
+            id="substractCounter"
+          >
         </div>      
       </main>
+
+      <!--
       <footer>
         <section>
           <table class="styled">
@@ -162,10 +179,10 @@
             <input type="text" name="email" placeholder="Email">
             <textarea name="msg" placeholder="Write message here"></textarea>
             <input type="submit" value="Submit">
-            <!-- https://www.w3schools.com/tags/tag_form.asp -->
           </form>
         </section>
       </footer>
+    -->
     </section>
   </div>
   <script src="index.js"></script>
