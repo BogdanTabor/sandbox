@@ -5,6 +5,15 @@
   --light-gray: lightgray;
 }
 
+#addCounter {
+  width: 50px;
+  background-color: lightgreen;
+}
+#substractCounter {
+  width: 50px;
+  background-color: lightcoral;
+}
+
 #next {
   --first-color: tomato;
   --second-color: deepskyblue;
