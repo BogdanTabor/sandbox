@@ -1,12 +1,17 @@
 const fruits = {
   name: "fruits",
-  arr: [ 'apple', 'kiwi', 'banana' ]
-  // arr: fruits
+  arr: [ 'apple', 'kiwi', 'banana', 'cherry', 'coconut' ]
 }
 const nums = {
   name: "nums",
   arr: [42, 100, 1, 5, 25, 10],
 };
+
+//ObjectMethods
+Object.defineProperties(fruits, { cost: { value : [ 20, 30, 40 ] } });
+Object.defineProperty(fruits, "name", { enurable: false });
+console.log(Object.keys(fruits));
+// Object.freeze(fruits);
 
 //toggle
 window.toggleLeft = function() {
@@ -29,6 +34,40 @@ const getDate = () => document.getElementById("date")
 .textContent = `${new Date().getDate()}${days[new Date().getDay()]}`;
 setInterval(getDate, 1000);
 
+//Sets
+const fruitsSet = new Set(fruits.arr);
+const fruitsSetElement = document.getElementById("fruitsSetElement");
+
+function showFruitsSet() {
+  let text = "";
+  for (const entry of fruitsSet.values()) {
+    text += entry + " · ";
+  }
+  fruitsSetElement.innerHTML = text;
+}
+
+//Iterable obj
+let myNumbers = {};
+let obj1Element = document.getElementById("obj1");
+
+myNumbers[Symbol.iterator] = function() {
+  let n = 0;
+  done = false;
+  return {
+    next() {
+      n += 2;
+      if (n == 16 ) { done = true }
+      return {value: n, done: done}
+    }
+  };
+}
+
+let obj1Text = "";
+for (const num of myNumbers) {
+  obj1Text += num + " "
+}
+
+obj1Element.innerHTML = obj1Text;
 
 //SHOW arr
 function showArr(list) {
@@ -37,6 +76,22 @@ function showArr(list) {
     txt += list[elem] + ' ';
   }
   return txt + '</br>';
+}
+
+//MAX in arr
+let maximized;
+function showMax(list) {
+  let elem = document.getElementById(list.name);
+  let max = Math.max.apply(null, list.arr);
+  let min = Math.min.apply(null, list.arr);
+  if (!maximized) {
+    maximized = true;
+    elem.innerHTML = max;
+  } else if (maximized) {
+    maximized = !maximized;
+    elem.innerHTML = min;
+  }
+  return elem;
 }
 
 //SORT arr
@@ -101,7 +156,7 @@ function randomItem(list) {
   document.getElementById(list.name).innerHTML = randomItem;
 }
 
-//Math sandbox
+//Math random
 function playMath(list) {
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -176,3 +231,12 @@ const counter = {
   get render() { counterElem.innerHTML = counter.value; },
   clearInput(input) { input.value = '' }
 };
+
+//Counter by function
+const add = (function () {
+  let counter = 0;
+  return function () {counter+=1; return counter}
+})();
+function countOne() {
+  document.getElementById("counterOne").innerHTML = add();
+}

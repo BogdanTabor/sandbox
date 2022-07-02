@@ -273,9 +273,9 @@ form textarea {
   resize: vertical;
 }
 
-main {
+/* main {
   min-height: 500px;
-}
+} */
 article {
   display: grid;
   grid-template-columns: 10% 1fr 10%;

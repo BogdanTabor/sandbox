@@ -10,7 +10,7 @@
 </head>
 
 <body id="home" class="open-left">
-  <div id="offcanvas-left" class="hide">
+  <div id="offcanvas-left" class="hide" style="display: none">
     <ul>
       <li><a href="#top"> Top </a></li>
       <li><a href="#quote"> Quote </a></li>
@@ -19,13 +19,13 @@
       <li><a href="form.html"> Form Page </a></li>
     </ul>
   </div>
-  <div class="togglebar">
+  <div class="togglebar" style="display: none">
     <div class="toggle" onclick="toggleLeft()">
       <i class="fa fa-bars"></i>
     </div>
   </div>
   <div class="center">
-    <header>
+    <header style="display: none;">
       <nav>
         <ul>
           <li><a href="#top"> Top </a></li>
@@ -37,16 +37,17 @@
     </header>
     <section>
       <main id="top">
+        <figure class="hero">
+          <img src="https://picsum.photos/1200/440/?image=201"
+            alt="A laptop with a mouse on a desk and a pair of glasses."
+            style="display: none;"
+          />
+          <figcaption>
+            <h1 id="time">Current time</h1>
+            <h1 id="date">Current date</h1>
+          </figcaption>
+        </figure>
         <article>
-          <figure class="hero">
-            <img src="https://picsum.photos/1200/440/?image=201"
-              alt="A laptop with a mouse on a desk and a pair of glasses." />
-            <figcaption>
-              <h1 id="time">Current time</h1>
-              <h1 id="date">Current date</h1>
-            </figcaption>
-          </figure>
-          <!--
           <h2 style="font-size: 2em" id="text">WHAT IS HTML?</h2>
           <hr>
           <p id="par1"><b>Hypertext Markup Language (HTML)</b> is the standard markup language for creating web pages and web
@@ -57,9 +58,7 @@
             multimedia web pages. <a href="#">HTML describes</a> the structure of a web page semantically and originally
             included cues for the appearance of the document.
           </p>
-          -->
-          <!--
-          <section style="margin-top: 30px;">Search and Replace
+          <section style="display: none; margin-top: 30px;">Search and Replace
             <input
               type="search"
               placeholder="Symbol to replace"
@@ -73,8 +72,6 @@
               onchange="replaceSymbol()"
             >
           </section>
-          -->
-<!--
           <section style="margin-top: 30px;">Edit quote
             <input
               type="search"
@@ -114,13 +111,18 @@
             <button onclick="doubleValue(nums)">DOUBLE</button>
             <button onclick="filterList(nums)">FILTER > 10</button>
             <button onclick="playMath(nums)">PLAY WITH MATH</button>
+            <button onclick="showMax(nums)">MAX/MIN</button>
             <p id="nums">nums</p>
           </div>  
         </article>
-      -->
 
         <!--COUNTER-->
         <div style="margin: 0px 0px 0px 150px">
+          <button
+            id="counterOne"
+            onclick="countOne()"
+            style="width: 200px;"
+          >COUNT</button>
           <h2>JavaScript Getters and Setters</h2>
           <p>Perfect for creating counters:</p>
           <p id="counter">0</p>
@@ -139,11 +141,22 @@
             onchange="counter.substract"
             id="substractCounter"
           >
-        </div>      
+        </div>
       </main>
 
-      <!--
-      <footer>
+      <!--fruitsSetElement-->
+      <div
+        id="fruitsSetElement"
+        onclick="showFruitsSet()" 
+        style="margin: 40px 0px 0px 150px"
+      >Fruits Set</div>
+
+      <!--Iterable Object-->
+      <div style="margin: 50px">Iterable Object
+        <p id="obj1"></p>
+      </div>
+
+      <footer style="display: none">
         <section>
           <table class="styled">
             <tr>
@@ -182,7 +195,6 @@
           </form>
         </section>
       </footer>
-    -->
     </section>
   </div>
   <script src="index.js"></script>
