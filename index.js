@@ -7,11 +7,56 @@ const nums = {
   arr: [42, 100, 1, 5, 25, 10],
 };
 
+console.log(document.title);
+
 //ObjectMethods
 Object.defineProperties(fruits, { cost: { value : [ 20, 30, 40 ] } });
 Object.defineProperty(fruits, "name", { enurable: false });
 console.log(Object.keys(fruits));
 // Object.freeze(fruits);
+
+document.getElementById("file").innerHTML = "HERE WE ARE";
+
+//PROMISE
+function displayPromise(arg) {
+  document.getElementById("promiseElem").innerHTML = arg;
+}
+
+let myPromise = new Promise(function(resolve, reject) {
+  let x = 0;
+  //some code to execute
+  x = 5;
+  if (x == 0) {
+    resolve(true);
+  } else {
+    reject (false);
+  }
+})
+
+function runPromise() {
+  myPromise.then(
+    function(value) {displayPromise(value);},
+    function(error) {displayPromise(error);}
+  );
+}
+
+//wait load file CALLBACK
+function myDisplayer(arg) {
+  document.getElementById("file").innerHTML = arg;
+}
+
+function getFile(myCallback) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "text.html");
+  req.onload = function() {
+    if (req.status == 200) {
+      myCallback(this.responseText);
+    } else {
+      myCallback("Error: " + req.status);
+    }
+  }
+  req.send();
+}
 
 //toggle
 window.toggleLeft = function() {
@@ -24,12 +69,14 @@ window.toggleRight = function() {
 }
 
 //headerClock
-const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const getTime = () => document.getElementById("time")
 .textContent = new Date().toLocaleTimeString();
 setInterval(getTime, 1000);
 
+setInterval(() => document.title = getTime(), 1000);
+
 //headerDate
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const getDate = () => document.getElementById("date")
 .textContent = `${new Date().getDate()}${days[new Date().getDay()]}`;
 setInterval(getDate, 1000);
