@@ -47,10 +47,11 @@
             <h1 id="date">Current date</h1>
           </figcaption>
         </figure>
+
         <article>
-          <button id="file" onclick="getFile(myDisplayer)">SHOW HTML TEXT</button>
-          <button id="promiseElem" onclick="runPromise()">PROMISE</button>
-          <section style="display: none; margin-top: 30px;">Search and Replace
+          <button style="display: none;" id="file" onclick="getFile(myDisplayer)">SHOW HTML TEXT</button>
+          <button style="display: none;" id="promiseElem" onclick="runPromise()">PROMISE</button>
+          <section style="display: none;">Search and Replace
             <input
               type="search"
               placeholder="Symbol to replace"
@@ -115,6 +116,7 @@
             onclick="countOne()"
             style="width: 200px;"
           >COUNT</button>
+
           <h2>JavaScript Getters and Setters</h2>
           <p>Perfect for creating counters:</p>
           <p id="counter">0</p>
@@ -137,16 +139,11 @@
       </main>
 
       <!--fruitsSetElement-->
-      <div
+      <button
         id="fruitsSetElement"
         onclick="showFruitsSet()" 
         style="margin: 40px 0px 0px 150px"
-      >Fruits Set</div>
-
-      <!--Iterable Object-->
-      <div style="margin: 50px">Iterable Object
-        <p id="obj1"></p>
-      </div>
+      >Show Fruits Set</button>
 
       <footer >
         <section>
@@ -176,6 +173,26 @@
               <td>info@learninghtml.com</td>
             </tr>
           </table>
+                  <!--ANIMATION-->
+        <div 
+        onclick="move()"
+        id="container"
+        style="
+          position: relative;
+          width: 100px;
+          height: 100px;
+          background: yellow;"
+        >
+
+        <div
+          id="animation"
+          style="
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: red;"
+          ></div>
+      </div>
         </section>
         <section>
           <form action="" id="contact">

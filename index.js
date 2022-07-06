@@ -72,7 +72,6 @@ window.toggleRight = function() {
 const getTime = () => document.getElementById("time")
 .textContent = new Date().toLocaleTimeString();
 setInterval(getTime, 1000);
-
 setInterval(() => document.title = getTime(), 1000);
 
 //TimeToUSStyle
@@ -85,6 +84,24 @@ const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const getDate = () => document.getElementById("date")
 .textContent = `${new Date().getDate()}${days[new Date().getDay()]}`;
 setInterval(getDate, 1000);
+
+//ANIMATION
+function move() {
+  let id = null;
+  const elem = document.getElementById("animation");   
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 1);
+  function frame() {
+    if (pos == 80) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
 
 //Sets
 const fruitsSet = new Set(fruits.arr);
@@ -113,13 +130,6 @@ myNumbers[Symbol.iterator] = function() {
     }
   };
 }
-
-let obj1Text = "";
-for (const num of myNumbers) {
-  obj1Text += num + " "
-}
-
-obj1Element.innerHTML = obj1Text;
 
 //SHOW arr
 function showArr(list) {
@@ -335,3 +345,6 @@ const a = [10, 15, 20]; //expect 5,5,5
 const b = [5, 10, 15]; //expect 15,25,35
 const aa = [1, 2, 3, 4, 5]; //expect 0,0,0,0,0
 const bb = [1, 2, 3, 4, 5]; //expect 2,4,6,8,10
+
+sumAndOdd(a, b, 3);
+sumAndOdd(aa, bb, 5);
