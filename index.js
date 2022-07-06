@@ -75,6 +75,11 @@ setInterval(getTime, 1000);
 
 setInterval(() => document.title = getTime(), 1000);
 
+//TimeToUSStyle
+const TimeToUSStyle = () => document.getElementById("time")
+.textContent = new Date().toLocaleTimeString('en-US');
+setInterval(getTime, 1000);
+
 //headerDate
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const getDate = () => document.getElementById("date")
@@ -286,4 +291,44 @@ const add = (function () {
 })();
 function countOne() {
   document.getElementById("counterOne").innerHTML = add();
+}
+
+//Ш++ test prepare
+function wheelsSum(bikes, cars) {
+  return (bikes * 2) + (cars * 4);
+} console.log("Wheels sum  is: " + wheelsSum(2, 2));
+
+function isEqual(a, b, c) {
+  let sum = a + b + c;
+  if (sum >= 0 && sum <= 100) {
+    if (a == b && a == c) return -1;
+    else return 1;
+  } else return Math.max(a, b, c);
+} console.log("isEqual result: " + isEqual(5, 95, 5));
+
+//Напишіть функцію, яка приймає на вхід два числа
+//і повертає суму всіх цілих чисел між ними,
+//які діляться без остачі на 5 або на одне з цих чисел.
+function sumIntFive(a, b) {
+  let sum = 0;
+  if (a && b) {
+    for (let i = a; i <= b; i++) {
+      if ((i % 5) == 0 || i % a == 0 || a % b == 0) {
+        sum += i;
+      }
+    }
+  } else console.log("A numbers must be passed");
+  return sum;
+} console.log("Sum of integers is: " + sumIntFive(0, 20));
+
+/*Напишіть функцію, яка приймає на вхід два масива однакової довжини
++ параметр, який описує їх довжину;
+і модифікує їх таким чином,
+що в першому масиві в кожній i-тій комірці знаходиться різниця цієї комірки
+і відповідної i-тої комірки другого масиву,
+а в другому масиві в кожній i-тій комірці знаходиться сума цієї комірки
+і відповідної i-тої комірки першого масиву.
+*/
+function sumAndOdd(arr1, arr2, arrsLength) {
+  
 }
